@@ -68,14 +68,17 @@ client.interceptors.request.use((config) => {
   return config
 })
 
-/** On 401, clear creds and redirect to /login. */
+/** On 401 from protected endpoints, clear creds and redirect to /login. */
 client.interceptors.response.use(
   (response) => response,
   (error) => {
     if (axios.isAxiosError(error) && error.response?.status === 401) {
-      clearToken()
-      clearStoredUser()
-      window.location.href = '/login'
+      const isAuthRequest = error.config?.url?.includes('/api/auth/')
+      if (!isAuthRequest && window.location.pathname !== '/login') {
+        clearToken()
+        clearStoredUser()
+        window.location.href = '/login'
+      }
     }
     return Promise.reject(error)
   },

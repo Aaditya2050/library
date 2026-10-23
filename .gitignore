@@ -1,0 +1,24 @@
+# Maven
+recall-backend/target/
+recall-backend/*.jar
+
+# Node
+recall-frontend/node_modules/
+recall-frontend/dist/
+recall-frontend/.env.local
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.class
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+maven.zip
+*.log
+tools/
+
