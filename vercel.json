@@ -1,7 +1,0 @@
-{
-  "buildCommand": "cd recall-frontend && npm install && npm run build",
-  "outputDirectory": "recall-frontend/dist",
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
-}
